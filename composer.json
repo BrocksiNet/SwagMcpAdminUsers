@@ -1,0 +1,19 @@
+{
+    "name": "swag/mcp-admin-users",
+    "description": "Example plugin providing an MCP tool to list admin users",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Swag\\McpAdminUsers\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Swag\\McpAdminUsers\\SwagMcpAdminUsers",
+        "label": {
+            "de-DE": "MCP Admin Users Tool",
+            "en-GB": "MCP Admin Users Tool"
+        }
+    }
+}
