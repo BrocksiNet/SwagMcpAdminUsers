@@ -14,9 +14,8 @@ use Shopware\Core\Framework\Mcp\Tool\McpToolResponse;
  */
 #[Package('framework')]
 #[McpTool(name: 'swag-admin-users-admin-users', description: 'List all admin users of the Shopware instance. Returns usernames, emails, and active status.')]
-class AdminUsersTool
+class AdminUsersTool extends McpToolResponse
 {
-    use McpToolResponse;
 
     public function __construct(
         private readonly EntityRepository $userRepository,

@@ -14,9 +14,8 @@ use Shopware\Core\Framework\Mcp\Tool\McpToolResponse;
  */
 #[Package('framework')]
 #[McpTool(name: 'swag-admin-users-acl-roles', description: 'List all ACL roles with their assigned privileges.')]
-class AdminRolesTool
+class AdminRolesTool extends McpToolResponse
 {
-    use McpToolResponse;
 
     public function __construct(
         private readonly EntityRepository $aclRoleRepository,
