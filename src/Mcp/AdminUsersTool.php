@@ -6,6 +6,7 @@ use Mcp\Capability\Attribute\McpTool;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Mcp\Attribute\McpToolRequires;
 use Shopware\Core\Framework\Mcp\Context\McpContextProvider;
 use Shopware\Core\Framework\Mcp\Tool\McpToolResponse;
 
@@ -14,6 +15,8 @@ use Shopware\Core\Framework\Mcp\Tool\McpToolResponse;
  */
 #[Package('framework')]
 #[McpTool(name: 'swag-admin-users-admin-users', description: 'List all admin users of the Shopware instance. Returns usernames, emails, and active status.')]
+#[McpToolRequires('user:read')]
+#[McpToolRequires('acl_role:read')]
 class AdminUsersTool extends McpToolResponse
 {
 
@@ -27,6 +30,10 @@ class AdminUsersTool extends McpToolResponse
     {
         try {
             $context = $this->contextProvider->getContext();
+
+            if ($error = $this->requirePrivilege($context, 'user:read', 'acl_role:read')) {
+                return $error;
+            }
 
             $criteria = new Criteria();
             $criteria->addAssociation('aclRoles');

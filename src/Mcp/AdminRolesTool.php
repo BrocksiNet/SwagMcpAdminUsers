@@ -6,6 +6,7 @@ use Mcp\Capability\Attribute\McpTool;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\Log\Package;
+use Shopware\Core\Framework\Mcp\Attribute\McpToolRequires;
 use Shopware\Core\Framework\Mcp\Context\McpContextProvider;
 use Shopware\Core\Framework\Mcp\Tool\McpToolResponse;
 
@@ -14,6 +15,7 @@ use Shopware\Core\Framework\Mcp\Tool\McpToolResponse;
  */
 #[Package('framework')]
 #[McpTool(name: 'swag-admin-users-acl-roles', description: 'List all ACL roles with their assigned privileges.')]
+#[McpToolRequires('acl_role:read')]
 class AdminRolesTool extends McpToolResponse
 {
 
@@ -27,6 +29,10 @@ class AdminRolesTool extends McpToolResponse
     {
         try {
             $context = $this->contextProvider->getContext();
+
+            if ($error = $this->requirePrivilege($context, 'acl_role:read')) {
+                return $error;
+            }
 
             $roles = $this->aclRoleRepository->search(new Criteria(), $context);
 
