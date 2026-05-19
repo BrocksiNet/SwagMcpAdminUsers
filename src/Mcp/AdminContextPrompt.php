@@ -9,7 +9,7 @@ use Shopware\Core\Framework\Log\Package;
  * @experimental stableVersion:v6.8.0 feature:MCP_SERVER
  */
 #[Package('framework')]
-#[McpPrompt(name: 'swag-admin-context', description: 'Context about Shopware admin user and role management for AI tool interaction.')]
+#[McpPrompt(name: 'swag-admin-context', title: 'Admin Context', description: 'Context about Shopware admin user and role management for AI tool interaction.')]
 class AdminContextPrompt
 {
     /**

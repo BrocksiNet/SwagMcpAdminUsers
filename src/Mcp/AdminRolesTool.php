@@ -14,7 +14,7 @@ use Shopware\Core\Framework\Mcp\Tool\McpToolResponse;
  * @experimental stableVersion:v6.8.0 feature:MCP_SERVER
  */
 #[Package('framework')]
-#[McpTool(name: 'swag-admin-users-acl-roles', description: 'List all ACL roles with their assigned privileges.')]
+#[McpTool(name: 'swag-admin-users-acl-roles', title: 'ACL Roles', description: 'List all ACL roles with their assigned privileges.')]
 #[McpToolRequires('acl_role:read')]
 class AdminRolesTool extends McpToolResponse
 {

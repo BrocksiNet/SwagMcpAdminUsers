@@ -14,7 +14,7 @@ use Shopware\Core\Framework\Mcp\Tool\McpToolResponse;
  * @experimental stableVersion:v6.8.0 feature:MCP_SERVER
  */
 #[Package('framework')]
-#[McpTool(name: 'swag-admin-users-admin-users', description: 'List all admin users of the Shopware instance. Returns usernames, emails, and active status.')]
+#[McpTool(name: 'swag-admin-users-admin-users', title: 'Admin Users', description: 'List all admin users of the Shopware instance. Returns usernames, emails, and active status.')]
 #[McpToolRequires('user:read')]
 #[McpToolRequires('acl_role:read')]
 class AdminUsersTool extends McpToolResponse

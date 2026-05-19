@@ -9,7 +9,7 @@ use Shopware\Core\Framework\Log\Package;
  * @experimental stableVersion:v6.8.0 feature:MCP_SERVER
  */
 #[Package('framework')]
-#[McpPrompt(name: 'swag-admin-usage', description: 'Safety guidelines for using the Shopware admin user MCP tools.')]
+#[McpPrompt(name: 'swag-admin-usage', title: 'Admin Usage', description: 'Safety guidelines for using the Shopware admin user MCP tools.')]
 class AdminUsagePrompt
 {
     /**
